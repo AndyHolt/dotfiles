@@ -1,0 +1,48 @@
+# This is Andy Holt's config file for Terminator terminal emulator.
+
+[global config]
+  focus = system			# use system default focus
+  dbus = True				# new terminal runs in same process
+  geometry_hinting = True		# window resizing in step with font size
+  window_state = normal			# open window normally (not maximised or hidden)
+  borderless = False			# don't run with system window boarders
+  tab_position = top			# place tabs at top of window
+  close_button_on_tab = True		# tabs have close buttons
+  disable_real_transparency = False	# use windowing environment transparency, not fake
+  title_transmit_fg_color = "#FFFFFF"	# white titlebar text
+  title_transmit_bg_color = "#C80002"	# red titlebar background
+  title_recieve_fg_color = "#FFFFFF"	# title for term that will recieve i/p from active term
+  title_recieve_bg_color = "#0076C9"	# background titlebar for recieveing term
+  title_inactive_fg_color = "#000000"	# black titlebar text when inactive
+  title_inactive_bg_color = "#C0BEBF"	# grey inactive titlebar background
+  inactive_color_offset = 0.7		# dim inactive terminals
+  always_split_with_profile = False	# use default profile when starting new term
+
+[keybindings]
+
+  zoom_in = <Ctrl>plus
+  zoom_out = <Ctrl>minus
+  zoom_normal = <Ctrl>0
+  new_tab = <Ctrl><Shift>T
+  cycle_next = <Ctrl>Tab
+  cycle_prev = <Ctrl><Shift>Tab
+
+[profiles]
+  [[default]]
+  use_system_font = False
+  font = Monaco 11
+  allow_bold = True
+  antialias = True
+  foreground_colour = "#FFFFFF"
+  background_color = "#000000"
+  background_type = transparent
+  background_darkness = 0.9
+  cursor_blink = True
+  scrollbar_position = right
+  scroll_on_keystroke = True
+  scroll_on_output = True
+  scrollback_lines = 500
+  focus_on_close = auto
+  exit_action = close
+  mouse_autohide = true
+  encoding = UTF-8
