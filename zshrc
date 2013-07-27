@@ -1,53 +1,47 @@
-# The following lines were added by compinstall
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/dotfiles/oh-my-zsh
 
-zstyle ':completion:*' completer _list _expand _complete _ignored _match _correct _approximate
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' glob 1
-zstyle ':completion:*' matcher-list ''
-zstyle ':completion:*' max-errors 3 numeric
-zstyle ':completion:*' substitute 1
-zstyle :compinstall filename '/home/adh/.zshrc'
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="prose"
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# use emacs style key bindings
-bindkey -e
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-# SETUP HISTORY OPTIONS - need to update these to ensure history is never lost.
-HISTFILE=~/.zsh_history
-HISTSIZE=2000
-SAVEHIST=10000
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-# share history between zsh sessions and save time info for each command
-setopt sharehistory extendedhistory
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
-# don't display duplicate lines in UP history, but do store them.
-# Cleanup whitespace in lines before saving
-setopt histfindnodups histreduceblanks
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-# when using bang substitutions etc, print the new line before executing it
-# (allows easy checking that we're not going to do something stupid)
-setopt histverify
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# change directory when 'cd' is ommitted.
-setopt autocd
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
 
-# GLOB AND MATCHING OPTIONS
-setopt extendedglob nomatch badpattern
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
 
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# don't hang up (exit) background jobs when exiting shell
-setopt nohup
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
 
-# wait until I'm finished before notifying of background job completion
-setopt nonotify
+source $ZSH/oh-my-zsh.sh
 
-# don't bleep at me
-unsetopt beep
-
-# aliases!
-if [[ -r ~/.zsh_aliases ]]; then
-   . ~/.zsh_aliases
-fi
+# Customize to your needs...
