@@ -1,0 +1,44 @@
+# enable color support for ls and also handy aliases
+alias ls='ls --color=auto'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias lp='ls | less'
+alias llp='ls -alF | less'
+alias LS='ls --color=auto'
+
+# grep color
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# don't autocorrect mkdir argument (it needs to not exist, that's the point)
+alias mkdir='nocorrect mkdir'
+
+# emacs
+alias emacs='emacsclient -c -a=""'
+alias e='emacsclient -c -a=""'
+
+# xdg-open
+alias o='xdg-open'
+
+# directory changing
+alias db='cd ~/Dropbox'
+alias doc='cd /storage/Documents'
+alias 2a='cd /storage/Documents/Uni/PartIIA/'
+alias 2b='cd /storage/Docuemnts/Uni/PartIIB/'
+alias cu='cd ~/Dropbox/Shared\ CICCU/'
+
+# show mac and ip address
+alias MAC='ifconfig | grep -i hwaddr'
+alias IP='ifconfig | grep -i inet'
+
+# ssh to CUED gate server
+alias se='ssh ah635@gate.eng.cam.ac.uk'
+alias sxe='ssh -X ah635@gate.eng.cam.ac.uk'
+
+# start ArgoUML application
+alias ArgoUML='java -jar ~/ArgoUML/argouml-0.34/argouml.jar'
+
+# run script to backup data files
+alias backup_data='~/Shell_Scripts/backupdata'

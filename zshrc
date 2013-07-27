@@ -46,3 +46,8 @@ setopt nonotify
 
 # don't bleep at me
 unsetopt beep
+
+# aliases!
+if [[ -r ~/.zsh_aliases ]]; then
+   . ~/.zsh_aliases
+fi
