@@ -48,3 +48,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+bindkey -e
+
+setopt nohup
