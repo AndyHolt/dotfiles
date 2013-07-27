@@ -7,7 +7,7 @@ SAVEHIST=10000000
 
 setopt append_history
 setopt extended_history
-setopt histfindnoups
+setopt histfindnodups
 setopt hist_ignore_space
 setopt histreduceblanks
 setopt hist_verify

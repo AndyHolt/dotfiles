@@ -16,8 +16,8 @@ alias egrep='egrep --color=auto'
 alias mkdir='nocorrect mkdir'
 
 # emacs
-alias emacs='emacsclient -c -a="" &'
-alias e='emacsclient -c -a="" &'
+alias emacs='emacsclient -c -a=""'
+alias e='emacsclient -c -a=""'
 
 # xdg-open
 alias o='xdg-open'
