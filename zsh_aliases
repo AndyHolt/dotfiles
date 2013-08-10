@@ -26,7 +26,7 @@ alias o='xdg-open'
 alias db='cd ~/Dropbox'
 alias doc='cd /storage/Documents'
 alias 2a='cd /storage/Documents/Uni/PartIIA/'
-alias 2b='cd /storage/Docuemnts/Uni/PartIIB/'
+alias 2b='cd /storage/Documents/Uni/PartIIB/'
 alias cu='cd ~/Dropbox/Shared\ CICCU/'
 
 # show mac and ip address
