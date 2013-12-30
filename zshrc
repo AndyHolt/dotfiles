@@ -53,5 +53,15 @@ bindkey -e
 
 setopt nohup
 
+export EDITOR='emacsclient -c -a=""'
+
+# set up tmuxinator completion
+source ~/dotfiles/tmuxinator_completion.zsh
+
 # autostart tmux when starting zsh
+ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOCONNECT="true"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
+# into a shell session *as a function*
