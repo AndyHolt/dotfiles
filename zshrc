@@ -65,3 +65,6 @@ ZSH_TMUX_AUTOCONNECT="true"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
 # into a shell session *as a function*
+
+# add cask binary to path
+export PATH="$HOME/.cask/bin:$PATH"
