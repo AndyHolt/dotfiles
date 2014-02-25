@@ -37,7 +37,7 @@
   background_color = "#000000"
   background_type = transparent
   background_darkness = 0.9
-  cursor_blink = True
+  cursor_blink = False
   scrollbar_position = right
   scroll_on_keystroke = True
   scroll_on_output = True
