@@ -30,7 +30,7 @@
 [profiles]
   [[default]]
   use_system_font = False
-  font = Monaco 11
+  font = Inconsolata 13
   allow_bold = True
   antialias = True
   foreground_colour = "#FFFFFF"
