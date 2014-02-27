@@ -59,7 +59,7 @@ export EDITOR='emacsclient -c -a=""'
 source ~/dotfiles/tmuxinator_completion.zsh
 
 # autostart tmux when starting zsh
-ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="true"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
