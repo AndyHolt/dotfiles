@@ -59,6 +59,7 @@ export EDITOR='emacsclient -c -a=""'
 source ~/dotfiles/tmuxinator_completion.zsh
 
 # autostart tmux when starting zsh
+# [todo] - zsh doesn't autoconnect to tmux. Why?
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="true"
 
