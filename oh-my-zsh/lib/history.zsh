@@ -5,7 +5,6 @@ fi
 HISTSIZE=2000
 SAVEHIST=10000000
 
-setopt append_history
 setopt extended_history
 setopt histfindnodups
 setopt hist_ignore_space
