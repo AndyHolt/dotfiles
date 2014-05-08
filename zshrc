@@ -69,3 +69,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # add cask binary to path
 export PATH="$HOME/.cask/bin:$PATH"
+
+# zmv for batch file renaming
+autoload zmv
