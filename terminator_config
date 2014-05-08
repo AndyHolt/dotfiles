@@ -16,7 +16,7 @@
   title_inactive_fg_color = "#000000"	# black titlebar text when inactive
   title_inactive_bg_color = "#C0BEBF"	# grey inactive titlebar background
   inactive_color_offset = 0.7		# dim inactive terminals
-  always_split_with_profile = False	# use default profile when starting new term
+  always_split_with_profile = True	# use current profile when starting new term
 
 [keybindings]
 
