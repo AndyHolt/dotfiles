@@ -42,3 +42,6 @@ alias ArgoUML='java -jar ~/ArgoUML/argouml-0.34/argouml.jar'
 
 # run script to backup data files
 alias backup_data='~/Shell_Scripts/backupdata'
+
+# reload zshrc file
+alias reload=". ~/dotfiles/zshrc && echo 'zsh config reloaded from ~/dotfiles/zshrc'"
