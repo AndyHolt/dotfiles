@@ -55,8 +55,8 @@ setopt nohup
 
 export EDITOR='emacsclient -c -a=""'
 
-# set up tmuxinator completion
-source ~/dotfiles/tmuxinator_completion.zsh
+# set up tmuxinator completion (now done by plugin)
+# source ~/dotfiles/tmuxinator_completion.zsh
 
 # autostart tmux when starting zsh
 # [todo] - zsh doesn't autoconnect to tmux. Why?
