@@ -46,6 +46,9 @@
   exit_action = close
   mouse_autohide = true
   encoding = UTF-8
+  use_custom_command = True
+  # [todo] - change theme setting to select correct theme based on time of day
+ custom_command = terminator -e "tmux -q has-session && exec tmux attach-session || exec tmuxinator start home" -p solarized-dark
 
   [[solarized-dark]]
   use_system_font = False
