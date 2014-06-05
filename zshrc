@@ -72,3 +72,6 @@ export PATH="$HOME/.cask/bin:$PATH"
 
 # zmv for batch file renaming
 autoload zmv
+
+# set some directory names to parameters for shortening in prompt
+SSC=/storage/Documents/Uni/PartIIB/Sparse_sampling_control
