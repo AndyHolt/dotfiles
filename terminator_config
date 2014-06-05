@@ -28,7 +28,7 @@
   cycle_prev = <Ctrl><Shift>Tab
 
 [profiles]
-  [[default]]
+  [[dark_black]]
   use_system_font = False
   font = Inconsolata 13
   allow_bold = True
@@ -48,7 +48,8 @@
   encoding = UTF-8
   use_custom_command = True
   # [todo] - change theme setting to select correct theme based on time of day
- custom_command = terminator -e "tmux -q has-session && exec tmux attach-session || exec tmuxinator start home" -p solarized-dark
+  # custom_command = terminator -e "tmux -q has-session && exec tmux attach-session || exec tmuxinator start home" -p solarized-dark
+  custom_command = "tmux -q has-session && exec tmux attach-session || exec tmuxinator start home"
 
   [[solarized-dark]]
   use_system_font = False
@@ -70,8 +71,10 @@
   exit_action = close
   mouse_autohide = true
   encoding = UTF-8
+  use_custom_command = True
+  custom_command = "tmux -q has-session && exec tmux attach-session || exec tmuxinator start home"
 
-  [[solarized-light]]
+  [[default]]
   use_system_font = False
   font = Inconsolata 13
   allow_bold = True
@@ -91,3 +94,5 @@
   exit_action = close
   mouse_autohide = true
   encoding = UTF-8
+  use_custom_command = True
+  custom_command = "tmux -q has-session && exec tmux attach-session || exec tmuxinator start home"
