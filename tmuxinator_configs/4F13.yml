@@ -1,0 +1,41 @@
+# ~/.tmuxinator/4F13.yml
+
+name: 4F13
+root: ~/Documents/Uni/PartIIB/4F13_Machine_Learning
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - home:
+      layout: main-vertical
+      panes:
+        - 4F13:
+            - ls
+  - CUED:
+      layout: main-vertical
+      panes:
+        - CUED:
+            - ssh -X ah635@gate.eng.cam.ac.uk
+            - ssh -X ts-access
+            - cd 4F13_Machine_Learning
+  - Matlab:
+      layout: main-vertical
+      panes:
+        - Matlab:
+            - ssh -X ah635@gate.eng.cam.ac.uk
+            - ssh -X ts-access
+            - cd 4F13_Machine_Learning
+            - matlab -nodesktop -nosplash
