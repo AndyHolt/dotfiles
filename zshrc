@@ -55,6 +55,9 @@ setopt nohup
 
 export EDITOR='emacsclient -c -a=""'
 
+# tmux powerline set up stuff
+export PATH="$HOME/.local/bin:$PATH"
+
 # set up tmuxinator completion (now done by plugin)
 # source ~/dotfiles/tmuxinator_completion.zsh
 
