@@ -43,7 +43,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump bundler command-not-found gem git pip ruby rvm tmux tmuxinator)
+plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
