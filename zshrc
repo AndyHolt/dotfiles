@@ -66,7 +66,7 @@ export PATH="$HOME/.local/bin:$PATH"
 ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_AUTOCONNECT="true"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
 # into a shell session *as a function*
 
