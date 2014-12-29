@@ -84,3 +84,9 @@ export IPYTHONDIR="/home/adh/dotfiles/ipython"
 
 # set python path to find modules in PythonTools directory
 export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
+
+# ensure VIRTUALENV pythons use python3
+export VIRTUALENV_PYTHON="/usr/bin/python3"
+
+# don't let VIRTUALENV modify my prompt. I'll do that myself thanks.
+export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
