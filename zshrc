@@ -78,3 +78,9 @@ autoload zmv
 
 # set some directory names to parameters for shortening in prompt
 SSC=/storage/Documents/Uni/PartIIB/Sparse_sampling_control
+
+# set ipython directory for config files etc
+export IPYTHONDIR="/home/adh/dotfiles/ipython"
+
+# set python path to find modules in PythonTools directory
+export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
