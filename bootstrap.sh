@@ -5,8 +5,10 @@
 echo -e "Setting up dotfiles:"
 
 # get the directory of this script.
-DOTFILES_DIR="$( cd \"$( dirname \"$0\" )\" && pwd)"
+DOTFILES_DIR="$( cd "$( dirname "$0" )" && pwd)"
+echo "Location of dotfiles directory:"
 echo $DOTFILES
+echo "Location of home directory:"
 echo $HOME
 
 # add zsh prompt to oh-my-zsh for autoloading
