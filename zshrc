@@ -76,6 +76,7 @@ export PATH="$HOME/.cask/bin:$PATH"
 # zmv for batch file renaming
 autoload zmv
 
+# [todo] - take machine specific settings out to specific script
 # set some directory names to parameters for shortening in prompt
 SSC=/storage/Documents/Uni/PartIIB/Sparse_sampling_control
 
@@ -90,3 +91,6 @@ export VIRTUALENV_PYTHON="/usr/bin/python3"
 
 # don't let VIRTUALENV modify my prompt. I'll do that myself thanks.
 export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
+
+# change vagrant home directory
+export VAGRANT_HOME="$HOME/data/VMs/vagrant.d"
