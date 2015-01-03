@@ -94,3 +94,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
 
 # change vagrant home directory
 export VAGRANT_HOME="$HOME/data/VMs/vagrant.d"
+
+# change MySQL prompt to something much more useful
+export MYSQL_PS1="\u at \h using \d\n> "
