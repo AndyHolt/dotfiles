@@ -8,5 +8,5 @@ PROMPT='%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in 
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}?"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ±"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✓"
