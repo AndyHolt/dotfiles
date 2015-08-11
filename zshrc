@@ -78,13 +78,15 @@ autoload zmv
 
 # [todo] - take machine specific settings out to specific script
 # set some directory names to parameters for shortening in prompt
-SSC=/storage/Documents/Uni/PartIIB/Sparse_sampling_control
+STUDY=/mnt/data/Documents/Work/Eden/Training/ReadingProgramme
 
 # set ipython directory for config files etc
 export IPYTHONDIR="/home/adh/dotfiles/ipython"
 
 # set python path to find modules in PythonTools directory
 export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
+# also add Walter source directory
+export PYTHONPATH="$PYTHONPATH:$HOME/Projects/Walter/src"
 
 # ensure VIRTUALENV pythons use python3
 export VIRTUALENV_PYTHON="/usr/bin/python3"
@@ -97,3 +99,15 @@ export VAGRANT_HOME="$HOME/data/VMs/vagrant.d"
 
 # change MySQL prompt to something much more useful
 export MYSQL_PS1="\u at \h using \d\n> "
+
+# set max width of man pages to 80 characters.
+export MANWIDTH=80
+
+# add projects directory to PATH
+if [[ -d $HOME/Projects/WritingTools ]]; then
+    export PATH="$PATH:$HOME/Projects/WritingTools"
+fi
+
+if [[ -d $HOME/Projects/gibo ]]; then
+    export PATH="$PATH:$HOME/Projects/gibo"
+fi
