@@ -28,15 +28,13 @@ else
     export OSX=0
 fi
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Load plugins according to OS. Different settings for Linux and OSX.
 if [[ $LINUX -eq 1 ]]; then
-    plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux tmuxinator)
+    plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
+             tmuxinator)    
 fi
 if [[ $OSX -eq 1 ]]; then
-    plugins=(autojump brew bundler gem git osx pip python ruby rvm tmux
+    plugins=(autojump brew bundler gem gibo git osx pip python ruby rvm tmux
              tmuxinator vagrant)
 fi
 
@@ -53,30 +51,34 @@ setopt nohup
 # use emacs, connect to server
 export EDITOR='emacsclient -c -a=""'
 
-# tmux powerline set up stuff
-export PATH="$HOME/.local/bin:$PATH"
+# some linux specific setup
+if [[ $LINUX -eq 1 ]]; then
+    # tmux powerline set up stuff
+    export PATH="$HOME/.local/bin:$PATH"
+
+    # Add RVM to PATH for scripting
+    export PATH="$PATH:$HOME/.rvm/bin"
+    # Load RVM into a shell session *as a function*
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+    # add cask binary to path
+    export PATH="$HOME/.cask/bin:$PATH"
+fi
 
 # autostart tmux when starting zsh
-# [todo] - zsh doesn't autoconnect to tmux. Why?
-ZSH_TMUX_AUTOSTART="false"
-ZSH_TMUX_AUTOCONNECT="true"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
-# into a shell session *as a function*
-
-# add cask binary to path
-export PATH="$HOME/.cask/bin:$PATH"
+# [fix] - zsh doesn't autoconnect to tmux. Why?
+# handled by terminal apps instead for now
+# ZSH_TMUX_AUTOSTART="false"
+# ZSH_TMUX_AUTOCONNECT="true"
 
 # zmv for batch file renaming
 autoload zmv
 
 # [todo] - take machine specific settings out to specific script
 # set some directory names to parameters for shortening in prompt
-STUDY=/mnt/data/Documents/Work/Eden/Training/ReadingProgramme
 
 # set ipython directory for config files etc
-export IPYTHONDIR="/home/adh/dotfiles/ipython"
+export IPYTHONDIR="$HOME/dotfiles/ipython"
 
 # set python path to find modules in PythonTools directory
 export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
@@ -90,7 +92,7 @@ export VIRTUALENV_PYTHON="/usr/bin/python3"
 export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
 
 # change vagrant home directory
-export VAGRANT_HOME="$HOME/data/VMs/vagrant.d"
+# export VAGRANT_HOME="$HOME/data/VMs/vagrant.d"
 
 # change MySQL prompt to something much more useful
 export MYSQL_PS1="\u at \h using \d\n> "
