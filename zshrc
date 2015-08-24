@@ -51,6 +51,13 @@ setopt nohup
 # use emacs, connect to server
 export EDITOR='emacsclient -c -a=""'
 
+# use pandoc completion if available
+autoload bashcompinit
+bashcompinit
+if [[ -d $HOME/Projects/pandoc-completion ]]; then
+    source ~/Projects/pandoc-completion/pandoc-completion.bash
+fi  
+
 # some linux specific setup
 if [[ $LINUX -eq 1 ]]; then
     # tmux powerline set up stuff
@@ -102,9 +109,14 @@ export MANWIDTH=80
 
 # add projects directory to PATH
 if [[ -d $HOME/Projects/WritingTools ]]; then
+    # WritingTools -- tools for writing things.
     export PATH="$PATH:$HOME/Projects/WritingTools"
 fi
-
 if [[ -d $HOME/Projects/gibo ]]; then
-    export PATH="$PATH:$HOME/Projects/gibo"
+   # gibo -- generates .gitignore files 
+   export PATH="$PATH:$HOME/Projects/gibo"
+fi
+if [[ -d $HOME/Projects/formd ]]; then
+    # formd -- a markdown formatting tool
+    export PATH="$PATH:$HOME/Projects/formd"
 fi

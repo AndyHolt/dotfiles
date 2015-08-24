@@ -13,7 +13,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # don't autocorrect mkdir argument (it needs to not exist, that's the point)
-alias mkdir='nocorrect mkdir'
+alias mkdir='nocorrect mkdir -p'
 alias mdr='mkdir -p'
 
 # emacs
