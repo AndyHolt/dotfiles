@@ -21,21 +21,29 @@ alias emacs='emacsclient -c -a=""'
 alias e='emacsclient -c -a=""'
 
 # xdg-open
-alias o='xdg-open'
+# use open instead if on mac
+if [[ $LINUX -eq 1 ]]; then
+    alias o='xdg-open'
+elif [[ $OSX -eq 1 ]]; then
+    alias o='open'
+fi
 
 # directory changing
-alias db='cd ~/Dropbox'
-alias doc='cd /storage/Documents'
-alias 2a='cd /storage/Documents/Uni/PartIIA/'
-alias 2b='cd /storage/Documents/Uni/PartIIB/'
-alias cu='cd ~/Dropbox/Shared\ CICCU/'
+# not needed when using autojump
+# alias db='cd ~/Dropbox'
+# alias doc='cd /storage/Documents'
+# alias 2a='cd /storage/Documents/Uni/PartIIA/'
+# alias 2b='cd /storage/Documents/Uni/PartIIB/'
+# alias cu='cd ~/Dropbox/Shared\ CICCU/'
 
 # show mac and ip address
 alias MAC='ifconfig | grep -i hwaddr'
 alias IP='ifconfig | grep -i inet'
 
 # start ArgoUML application
-alias ArgoUML='java -jar ~/ArgoUML/argouml-0.34/argouml.jar'
+if [[ -d ~/ArgoUML ]]; then
+    alias ArgoUML='java -jar ~/ArgoUML/argouml-0.34/argouml.jar'
+fi
 
 # reload zshrc file
 alias reload=". ~/dotfiles/zshrc && echo 'zsh config reloaded from ~/dotfiles/zshrc'"
