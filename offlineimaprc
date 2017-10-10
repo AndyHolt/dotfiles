@@ -1,0 +1,136 @@
+[general]
+ui = TTYUI
+accounts = Hotmail,Gmail,Cantab,UCCF,Hebronstudents
+pythonfile = ~/Dotfiles/offlineimap.py
+fsync = False
+
+[Account Hotmail]
+localrepository = Hotmail-Local
+remoterepository = Hotmail-Remote
+# status backend option not supported anymore, sqlite seems to be the default
+# anyway, so nothing lost
+# status_backend = sqlite
+
+[Repository Hotmail-Local]
+type = Maildir
+localfolders = ~/.mail/hotmail
+
+[Repository Hotmail-Remote]
+maxconnections = 3
+type = IMAP
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remotehost = imap-mail.outlook.com
+remoteuser = andrew.holt@hotmail.co.uk
+remotepasseval = get_keychain_pass(account="andrew.holt@hotmail.co.uk", server="imap-mail.outlook.com")
+realdelete = no
+
+[Account Gmail]
+localrepository = ah635-Gmail-Local
+remoterepository = ah635-Gmail-Remote
+# status backend option not supported anymore, sqlite seems to be the default
+# anyway, so nothing lost
+# status_backend = sqlite
+
+[Repository ah635-Gmail-Local]
+type = Maildir
+localfolders = ~/.mail/ah635-gmail.com
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'starred': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository ah635-Gmail-Remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remoteuser = andrew.holt635
+remotepasseval = get_keychain_pass(account="andrew.holt635@gmail.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'starred',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Spam',
+                                             ]
+
+[Account Cantab]
+localrepository = Cantab-Local
+remoterepository = Cantab-Remote
+# status backend option not supported anymore, sqlite seems to be the default
+# anyway, so nothing lost
+# status_backend = sqlite
+
+[Repository Cantab-Local]
+type = Maildir
+localfolders = ~/.mail/cantab
+
+[Repository Cantab-Remote]
+maxconnections = 3
+type = IMAP
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remotehost = mail.secure.aluminati.net
+remoteuser = andy.holt@cantab.net
+remotepasseval = get_keychain_pass(account="andy.holt@cantab.net", server="mail.secure.aluminati.net")
+realdelete = no
+
+[Account UCCF]
+localrepository = UCCF-Local
+remoterepository = UCCF-Remote
+# status backend option not supported anymore, sqlite seems to be the default
+# anyway, so nothing lost
+# status_backend = sqlite
+
+[Repository UCCF-Local]
+type = Maildir
+localfolders = ~/.mail/uccf
+
+[Repository UCCF-Remote]
+maxconnections = 3
+type = IMAP
+ssl = no
+remoteport = 1143
+remotehost = localhost
+remoteuser = aholt@uccf.org.uk
+remotepasseval = get_keychain_pass(account="aholt@uccf.org.uk", server="mx.uccf.org.uk")
+realdelete = no
+
+[Account Hebronstudents]
+localrepository = hebronstudents-Gmail-Local
+remoterepository = hebronstudents-Gmail-Remote
+# status backend option not supported anymore, sqlite seems to be the default
+# anyway, so nothing lost
+# status_backend = sqlite
+
+[Repository hebronstudents-Gmail-Local]
+type = Maildir
+localfolders = ~/.mail/hebronstudents
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'starred': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository hebronstudents-Gmail-Remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remoteuser = studentsathebron
+remotepasseval = get_keychain_pass(account="studentsathebron", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'starred',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Spam',
+                                             ]
