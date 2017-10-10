@@ -1,6 +1,6 @@
 [general]
 ui = TTYUI
-accounts = Hotmail,Gmail,Cantab,UCCF,Hebronstudents
+accounts = Hotmail,Gmail,Cantab,UCCF
 pythonfile = ~/Dotfiles/offlineimap.py
 fsync = False
 
@@ -100,37 +100,3 @@ remotehost = localhost
 remoteuser = aholt@uccf.org.uk
 remotepasseval = get_keychain_pass(account="aholt@uccf.org.uk", server="mx.uccf.org.uk")
 realdelete = no
-
-[Account Hebronstudents]
-localrepository = hebronstudents-Gmail-Local
-remoterepository = hebronstudents-Gmail-Remote
-# status backend option not supported anymore, sqlite seems to be the default
-# anyway, so nothing lost
-# status_backend = sqlite
-
-[Repository hebronstudents-Gmail-Local]
-type = Maildir
-localfolders = ~/.mail/hebronstudents
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'starred': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
-                            'archive': '[Gmail]/All Mail',
-                            }.get(folder, folder)
-
-[Repository hebronstudents-Gmail-Remote]
-maxconnections = 1
-type = Gmail
-sslcacertfile = /usr/local/etc/openssl/cert.pem
-remoteuser = studentsathebron
-remotepasseval = get_keychain_pass(account="studentsathebron", server="imap.gmail.com")
-realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
-                            '[Gmail]/Sent Mail': 'sent',
-                            '[Gmail]/Starred':   'starred',
-                            '[Gmail]/Trash':     'trash',
-                            '[Gmail]/All Mail':  'archive',
-                            }.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
-                                             '[Gmail]/Spam',
-                                             ]
