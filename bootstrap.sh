@@ -4,9 +4,9 @@
 
 # If input argument is passed, use that as user directory name
 if [ "$1" != "" ]; then
-    HOME_DIR="$HOME"
-else
     HOME_DIR="/home/$1"
+else
+    HOME_DIR="$HOME"
 fi
 
 echo -e "Setting up dotfiles:"
@@ -35,5 +35,8 @@ ln -s $DOTFILES_DIR/tmux.conf $HOME_DIR/.tmux.conf
 # zsh config
 ln -s $DOTFILES_DIR/zsh_aliases $HOME_DIR/.zsh_aliases
 ln -s $DOTFILES_DIR/zshrc $HOME_DIR/.zshrc
+
+# offlineimap setup
+ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
 
 echo -e "Set up of dotfiles complete."

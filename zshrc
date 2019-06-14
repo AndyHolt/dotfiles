@@ -63,14 +63,14 @@ if [[ $LINUX -eq 1 ]]; then
     # tmux powerline set up stuff
     export PATH="$HOME/.local/bin:$PATH"
 
-    # Add RVM to PATH for scripting
-    export PATH="$PATH:$HOME/.rvm/bin"
-    # Load RVM into a shell session *as a function*
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
     # add cask binary to path
     export PATH="$HOME/.cask/bin:$PATH"
 fi
+
+# Add RVM to PATH
+export PATH="$PATH:$HOME/.rvm/bin"
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # autostart tmux when starting zsh
 # [fix] - zsh doesn't autoconnect to tmux. Why?
@@ -120,3 +120,23 @@ if [[ -d $HOME/Projects/formd ]]; then
     # formd -- a markdown formatting tool
     export PATH="$PATH:$HOME/Projects/formd"
 fi
+if [[ -d $HOME/Projects/Tools ]]; then
+    # tools -- general scripts, helps and tools
+    export PATH="$PATH:$HOME/Projects/Tools"
+fi
+if [[ -d $HOME/Projects/Erasmus ]]; then
+    # Erasmus -- bible text tools
+    export PATH="$PATH:$HOME/Projects/Erasmus"
+fi
+if [[ -d $HOME/Projects/Zenodotus ]]; then
+    # Zonodotus -- Resource tools
+    export PATH="$PATH:$HOME/Projects/Zenodotus"
+fi
+
+# set maildir directory
+export MAILDIR="$HOME/.mail"
+
+# pkgconfig setup required for emacs pdf-tools package
+export PKG_CONFIG_PATH=/usr/local/Cellar/pkg-config/0.29.2/bin/pkg-config
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig/"
