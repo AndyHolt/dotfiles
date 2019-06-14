@@ -16,7 +16,7 @@ type = Maildir
 localfolders = ~/.mail/hotmail
 
 [Repository Hotmail-Remote]
-maxconnections = 3
+# maxconnections = 3
 type = IMAP
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
@@ -43,7 +43,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             }.get(folder, folder)
 
 [Repository ah635-Gmail-Remote]
-maxconnections = 1
+# maxconnections = 1
 type = Gmail
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 remoteuser = andrew.holt635
@@ -71,7 +71,7 @@ type = Maildir
 localfolders = ~/.mail/cantab
 
 [Repository Cantab-Remote]
-maxconnections = 3
+# maxconnections = 3
 type = IMAP
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
@@ -92,11 +92,10 @@ type = Maildir
 localfolders = ~/.mail/uccf
 
 [Repository UCCF-Remote]
-maxconnections = 3
 type = IMAP
-ssl = no
-remoteport = 1143
-remotehost = localhost
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remotehost = outlook.office365.com
 remoteuser = aholt@uccf.org.uk
-remotepasseval = get_keychain_pass(account="aholt@uccf.org.uk", server="mx.uccf.org.uk")
+remotepasseval = get_keychain_pass(account="aholt@uccf.org.uk", server="outlook.office.com")
 realdelete = no
