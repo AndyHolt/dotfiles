@@ -1,6 +1,6 @@
 [general]
 ui = TTYUI
-accounts = Hotmail,Gmail,Cantab,UCCF
+accounts = Hotmail,Gmail,Cantab,SBTS
 pythonfile = ~/Dotfiles/offlineimap.py
 fsync = False
 
@@ -78,24 +78,4 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 remotehost = mail.secure.aluminati.net
 remoteuser = andy.holt@cantab.net
 remotepasseval = get_keychain_pass(account="andy.holt@cantab.net", server="mail.secure.aluminati.net")
-realdelete = no
-
-[Account UCCF]
-localrepository = UCCF-Local
-remoterepository = UCCF-Remote
-# status backend option not supported anymore, sqlite seems to be the default
-# anyway, so nothing lost
-# status_backend = sqlite
-
-[Repository UCCF-Local]
-type = Maildir
-localfolders = ~/.mail/uccf
-
-[Repository UCCF-Remote]
-type = IMAP
-ssl = yes
-sslcacertfile = /usr/local/etc/openssl/cert.pem
-remotehost = outlook.office365.com
-remoteuser = aholt@uccf.org.uk
-remotepasseval = get_keychain_pass(account="aholt@uccf.org.uk", server="outlook.office.com")
 realdelete = no
