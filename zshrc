@@ -111,6 +111,7 @@ export MANWIDTH=80
 if [[ -d $HOME/Projects/WritingTools ]]; then
     # WritingTools -- tools for writing things.
     export PATH="$PATH:$HOME/Projects/WritingTools"
+    export FPATH="$FPATH:$HOME/Projects/WritingTools"
 fi
 if [[ -d $HOME/Projects/gibo ]]; then
    # gibo -- generates .gitignore files 
