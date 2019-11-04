@@ -17,8 +17,11 @@ Pcantab=$!
 offlineimap -a Gmail -u quiet &
 Pgmail=$!
 
+offlineimap -a SBTS -u quiet &
+Psbts=$!
+
 # wait for all processes to finish
-wait $Photmail $Pcantab $Pgmail
+wait $Photmail $Pcantab $Pgmail $Psbts
 
 end=`date +%s`
 runtime=$((end-start))

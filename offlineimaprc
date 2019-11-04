@@ -33,7 +33,7 @@ remoterepository = ah635-Gmail-Remote
 # status_backend = sqlite
 
 [Repository ah635-Gmail-Local]
-type = Maildir
+type = GmailMaildir
 localfolders = ~/.mail/ah635-gmail.com
 nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
@@ -45,6 +45,9 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
 [Repository ah635-Gmail-Remote]
 # maxconnections = 1
 type = Gmail
+# added ssl_version as a fudge because of issue with openssl and imaplib2.
+# Hopefully can remove this at some point!
+ssl_version = tls1_2
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 remoteuser = andrew.holt635
 remotepasseval = get_keychain_pass(account="andrew.holt635@gmail.com", server="imap.gmail.com")
@@ -79,3 +82,40 @@ remotehost = mail.secure.aluminati.net
 remoteuser = andy.holt@cantab.net
 remotepasseval = get_keychain_pass(account="andy.holt@cantab.net", server="mail.secure.aluminati.net")
 realdelete = no
+
+[Account SBTS]
+localrepository = SBTS-Local
+remoterepository = SBTS-Remote
+
+[Repository SBTS-Local]
+type = GmailMaildir
+localfolders = ~/.mail/sbts
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            'spam':    '[Gmail]/Spam',
+                            'inbox':   'INBOX',
+                            }.get(folder, folder)
+
+[Repository SBTS-Remote]
+type = Gmail
+# added ssl_version as a fudge because of issue with openssl and imaplib2.
+# Hopefully can remove this at some point!
+ssl_version = tls1_2
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+remoteuser = aholt379@students.sbts.edu
+remotepasseval = get_keychain_pass(account="aholt379@students.sbts.edu", server="imap.gmail.com")
+ssl = yes
+remoteport = 993
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            '[Gmail]/Spam':      'spam',
+                            'INBOX':             'inbox',
+                            }.get(folder, folder)
+# folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+#                                              '[Gmail]/Spam',
+#                                              ]
