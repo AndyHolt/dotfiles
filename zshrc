@@ -28,6 +28,16 @@ else
     export OSX=0
 fi
 
+# settings for zsh-background-notify
+# notification threshold in seconds
+export bgnotify_threshold=5
+# notification function
+function bgnotify_formatted {
+  ## $1=exit_status, $2=command, $3=elapsed_time
+    [ $1 -eq 0 ] && title="Command complete" || title="Houston, we have a problem"
+    bgnotify "$title" "$2 ran in $3 s";
+}
+
 # Load plugins according to OS. Different settings for Linux and OSX.
 if [[ $LINUX -eq 1 ]]; then
     plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
@@ -36,6 +46,7 @@ fi
 if [[ $OSX -eq 1 ]]; then
     plugins=(
         autojump
+        bgnotify
         brew
         bundler
         gem
