@@ -34,8 +34,22 @@ if [[ $LINUX -eq 1 ]]; then
              tmuxinator)    
 fi
 if [[ $OSX -eq 1 ]]; then
-    plugins=(autojump brew bundler gem gibo git osx pip python ruby rvm tmux
-             tmuxinator vagrant)
+    plugins=(
+        autojump
+        brew
+        bundler
+        gem
+        gibo
+        git
+        osx
+        pip
+        python
+        ruby
+        rvm
+        tmux
+        tmuxinator
+        vagrant
+    )
 fi
 
 source $ZSH/oh-my-zsh.sh
