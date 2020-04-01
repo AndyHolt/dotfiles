@@ -167,3 +167,7 @@ export MAILDIR="$HOME/.mail"
 export PKG_CONFIG_PATH=/usr/local/Cellar/pkg-config/0.29.2/bin/pkg-config
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig/"
+
+# set colours for ls command
+# See ls man page under LSCOLORS for settings details
+export LSCOLORS="exfxcxdxbxegedabagacad"
