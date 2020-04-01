@@ -44,6 +44,7 @@ if [[ $OSX -eq 1 ]]; then
         osx
         pip
         python
+        ripgrep
         ruby
         rvm
         tmux
