@@ -49,6 +49,7 @@ if [[ $OSX -eq 1 ]]; then
         bgnotify
         brew
         bundler
+        cask
         gem
         gibo
         git
@@ -171,3 +172,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/libffi/3.2.1/lib/pkgc
 # set colours for ls command
 # See ls man page under LSCOLORS for settings details
 export LSCOLORS="exfxcxdxbxegedabagacad"
+
+# enable zsh expansion for cask, the emacs package manager
+export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
+autoload -U compinit && compinit
