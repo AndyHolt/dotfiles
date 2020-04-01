@@ -1,11 +1,11 @@
 # enable color support for ls and also handy aliases
-alias ls='ls --color=auto'
-alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+alias ls='ls -G'
+alias ll='ls -alFG'
+alias la='ls -AG'
+alias l='ls -CFG'
 alias lp='ls | less'
 alias llp='ls -alF | less'
-alias LS='ls --color=auto'
+alias LS='ls -G'
 
 # grep color
 alias grep='grep --color=auto'
