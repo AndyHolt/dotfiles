@@ -160,6 +160,11 @@ if [[ -d $HOME/Projects/Zenodotus ]]; then
     # Zonodotus -- Resource tools
     export PATH="$PATH:$HOME/Projects/Zenodotus"
 fi
+if [[ -d $HOME/Projects/mailsync ]]; then
+    # mailsync - fetch and index mail
+    export PATH="$PATH:$HOME/Projects/mailsync"
+    export FPATH="$FPATH:$HOME/Projects/mailsync"
+fi
 
 # set maildir directory
 export MAILDIR="$HOME/.mail"
