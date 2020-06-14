@@ -50,6 +50,7 @@ if [[ $OSX -eq 1 ]]; then
         brew
         bundler
         cask
+        colored-man-pages
         gem
         gibo
         git
