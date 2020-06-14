@@ -176,3 +176,6 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 # enable zsh expansion for cask, the emacs package manager
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
 autoload -U compinit && compinit
+
+# Add TeXLive installation to PATH
+export PATH="/usr/local/texlive/2020/bin/x86_64-darwin:$PATH"
