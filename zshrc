@@ -7,6 +7,11 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # Set name of the theme to load.
 ZSH_THEME="adh"
 
+# Add run-emacs to path (before setting up aliases)
+if [[ -d $HOME/Projects/run-emacs ]]; then
+    export PATH="$PATH:$HOME/Projects/run-emacs"
+fi
+
 # load aliases from another file
 if [[ -r ~/.zsh_aliases ]]; then
    . ~/.zsh_aliases
@@ -77,7 +82,11 @@ bindkey -e
 setopt nohup
 
 # use emacs, connect to server
-export EDITOR='emacsclient -c -a=""'
+if [[ -d $HOME/Projects/run-emacs ]]; then
+    export EDITOR='run-emacs -w'
+else
+    export EDITOR='emacsclient -c -a=""'
+fi
 
 # use pandoc completion if available
 autoload bashcompinit

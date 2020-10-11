@@ -17,8 +17,13 @@ alias mkdir='nocorrect mkdir -p'
 alias mdr='mkdir -p'
 
 # emacs
-alias emacs='emacsclient -c -a=""'
-alias e='emacsclient -c -a=""'
+if [[ -d $HOME/Projects/run-emacs ]]; then
+    alias emacs='run-emacs'
+    alias e='run-emacs'
+else
+    alias emacs='emacsclient -c -a=""'
+    alias e='emacsclient -c -a=""'
+fi
 
 # xdg-open
 # use open instead if on mac
