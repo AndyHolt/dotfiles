@@ -29,7 +29,7 @@ fi
 # use open instead if on mac
 if [[ $LINUX -eq 1 ]]; then
     alias o='xdg-open'
-elif [[ $OSX -eq 1 ]]; then
+elif [[ $MACOS -eq 1 ]]; then
     alias o='open'
 fi
 

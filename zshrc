@@ -28,9 +28,9 @@ else
 fi
 
 if [[ `uname` == 'Darwin' ]]; then
-    export OSX=1
+    export MACOS=1
 else
-    export OSX=0
+    export MACOS=0
 fi
 
 # settings for zsh-background-notify
@@ -48,7 +48,7 @@ if [[ $LINUX -eq 1 ]]; then
     plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
              tmuxinator)    
 fi
-if [[ $OSX -eq 1 ]]; then
+if [[ $MACOS -eq 1 ]]; then
     plugins=(
         autojump
         bgnotify
@@ -59,7 +59,7 @@ if [[ $OSX -eq 1 ]]; then
         gem
         gibo
         git
-        osx
+        macos
         pip
         python
         ripgrep
@@ -175,6 +175,11 @@ if [[ -d $HOME/Projects/mailsync ]]; then
     export PATH="$PATH:$HOME/Projects/mailsync"
     export FPATH="$FPATH:$HOME/Projects/mailsync"
 fi
+if [[ -d $HOME/Projects/calsync ]]; then
+    # calsync - fetch calendar data for org files
+    export PATH="$PATH:$HOME/Projects/calsync"
+    export FPATH="$FPATH:$HOME/Projects/calsync"
+fi
 
 # set maildir directory
 export MAILDIR="$HOME/.mail"
@@ -193,6 +198,21 @@ export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
 autoload -U compinit && compinit
 
 # Add TeXLive installation to PATH
-export PATH="/usr/local/texlive/2020/bin/x86_64-darwin:$PATH"
+# export PATH="/usr/local/texlive/2020/bin/x86_64-darwin:$PATH"
 
 export PATH="$PATH:$HOME/Projects/watson-ruby/bin/"
+
+# source ~/dotfiles/zsh-autosuggestions/zsh-autosuggestions.zsh
+# export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+# add latex package and class directory to path
+if [[ -d $HOME/Projects/LaTeXClasses ]]; then
+    export PATH="$PATH:$HOME/Projects/LaTeXClasses"
+    export FPATH="$FPATH:$HOME/Projects/LaTeXClasses"
+fi
+
+# Function to open a man page in Preview as a pdf
+function manpdf {
+    # $1 is man page to view
+    man -t $1 | open -fa Preview
+}
