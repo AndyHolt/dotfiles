@@ -216,3 +216,8 @@ function manpdf {
     # $1 is man page to view
     man -t $1 | open -fa Preview
 }
+
+# Set up for pyenv, managing python versions
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
