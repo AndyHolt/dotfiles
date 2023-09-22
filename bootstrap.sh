@@ -39,4 +39,10 @@ ln -s $DOTFILES_DIR/zshrc $HOME_DIR/.zshrc
 # offlineimap setup
 ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
 
+# hammerspoon setup
+ln -s $DOTFILES_DIR/hammerspoon-init.lua $HOME_DIR/.hammerspoon/init.lua
+
+# vim setup
+ln -s $DOTFILES_DIR/vimrc $HOME_DIR/.vimrc
+
 echo -e "Set up of dotfiles complete."
