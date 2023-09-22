@@ -2,3 +2,5 @@
 *.pyc
 
 iterm-profile-switch.sh
+
+*.sqlite
