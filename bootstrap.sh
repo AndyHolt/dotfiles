@@ -22,6 +22,7 @@ echo $HOME_DIR
 cp $DOTFILES_DIR/adh.zsh-theme $DOTFILES_DIR/oh-my-zsh/themes/.
 
 # bash config
+ln -s $DOTFILES_DIR/bash_profile $HOME_DIR/.bash_profile
 ln -s $DOTFILES_DIR/bash_aliases $HOME_DIR/.bash_aliases
 ln -s $DOTFILES_DIR/bash_logout $HOME_DIR/.bash_logout
 ln -s $DOTFILES_DIR/bashrc $HOME_DIR/.bashrc
