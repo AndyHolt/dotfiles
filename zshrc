@@ -230,3 +230,8 @@ if [ -f '/Users/adh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adh/google-
 if [ -f '/Users/adh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adh/google-cloud-sdk/completion.zsh.inc'; fi
 
 export CLOUDSDK_PYTHON=$(pyenv which python)
+
+# add go installed binaries to path
+if [[ -d $HOME/go/bin ]]; then
+    export PATH="$PATH:$HOME/go/bin"
+fi
