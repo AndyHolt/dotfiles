@@ -199,7 +199,7 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 
 # enable zsh expansion for cask, the emacs package manager
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # Add TeXLive installation to PATH
 # export PATH="/usr/local/texlive/2020/bin/x86_64-darwin:$PATH"
@@ -238,4 +238,17 @@ export CLOUDSDK_PYTHON=$(pyenv which python)
 # add go installed binaries to path
 if [[ -d $HOME/go/bin ]]; then
     export PATH="$PATH:$HOME/go/bin"
+fi
+
+# Add homebrew installed package zsh completion functions
+export FPATH="/usr/local/share/zsh/site-functions/:$FPATH"
+
+# Add ~/.local/bin directory to path if it exists
+if [[ -d $HOME/.local/bin ]]; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
+# Add zfunc directory to FPATH for zsh completions
+if [[ -d $HOME/dotfiles/zfunc ]]; then
+    export FPATH="$HOME/dotfiles/zfunc:$FPATH"
 fi
