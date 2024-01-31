@@ -180,6 +180,10 @@ if [[ -d $HOME/Projects/calsync ]]; then
     export PATH="$PATH:$HOME/Projects/calsync"
     export FPATH="$FPATH:$HOME/Projects/calsync"
 fi
+if [[ -d $HOME/Projects/colouring-in-creator ]]; then
+    export PATH="$PATH:$HOME/Projects/colouring-in-creator"
+    export FPATH="$FPATH:$HOME/Projects/colouring-in-creator"
+fi
 
 # set maildir directory
 export MAILDIR="$HOME/.mail"
