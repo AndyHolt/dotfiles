@@ -36,6 +36,7 @@ ln -s $DOTFILES_DIR/tmux.conf $HOME_DIR/.tmux.conf
 # zsh config
 ln -s $DOTFILES_DIR/zsh_aliases $HOME_DIR/.zsh_aliases
 ln -s $DOTFILES_DIR/zshrc $HOME_DIR/.zshrc
+ln -s $DOTFILES_DIR/zshenv $HOME_DIR/.zshenv
 
 # offlineimap setup
 ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
