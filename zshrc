@@ -46,7 +46,7 @@ function bgnotify_formatted {
 # Load plugins according to OS. Different settings for Linux and OSX.
 if [[ $LINUX -eq 1 ]]; then
     plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
-             tmuxinator)    
+             tmuxinator)
 fi
 if [[ $MACOS -eq 1 ]]; then
     plugins=(
@@ -56,10 +56,12 @@ if [[ $MACOS -eq 1 ]]; then
         bundler
         cask
         colored-man-pages
+        docker
         gem
         gibo
         git
         macos
+        nvm
         pip
         python
         ripgrep
@@ -72,8 +74,6 @@ if [[ $MACOS -eq 1 ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
 
 # Use emacs keybindings for zle (Z-Shell Line Editor)
 bindkey -e
@@ -93,7 +93,7 @@ autoload bashcompinit
 bashcompinit
 if [[ -d $HOME/Projects/pandoc-completion ]]; then
     source ~/Projects/pandoc-completion/pandoc-completion.bash
-fi  
+fi
 
 # some linux specific setup
 if [[ $LINUX -eq 1 ]]; then
@@ -122,21 +122,13 @@ autoload zmv
 # set some directory names to parameters for shortening in prompt
 
 # set ipython directory for config files etc
-export IPYTHONDIR="$HOME/dotfiles/ipython"
+# export IPYTHONDIR="$HOME/dotfiles/ipython"
 
 # set python path to find modules in PythonTools directory
 export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
-# also add Walter source directory
-export PYTHONPATH="$PYTHONPATH:$HOME/Projects/Walter/src"
-
-# ensure VIRTUALENV pythons use python3
-export VIRTUALENV_PYTHON="/usr/bin/python3"
 
 # don't let VIRTUALENV modify my prompt. I'll do that myself thanks.
 export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
-
-# change vagrant home directory
-# export VAGRANT_HOME="$HOME/data/VMs/vagrant.d"
 
 # change MySQL prompt to something much more useful
 export MYSQL_PS1="\u at \h using \d\n> "
@@ -151,7 +143,7 @@ if [[ -d $HOME/Projects/WritingTools ]]; then
     export FPATH="$FPATH:$HOME/Projects/WritingTools"
 fi
 if [[ -d $HOME/Projects/gibo ]]; then
-   # gibo -- generates .gitignore files 
+   # gibo -- generates .gitignore files
    export PATH="$PATH:$HOME/Projects/gibo"
 fi
 if [[ -d $HOME/Projects/formd ]]; then
@@ -201,11 +193,6 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
 autoload -Uz compinit && compinit
 
-# Add TeXLive installation to PATH
-# export PATH="/usr/local/texlive/2020/bin/x86_64-darwin:$PATH"
-
-export PATH="$PATH:$HOME/Projects/watson-ruby/bin/"
-
 # source ~/dotfiles/zsh-autosuggestions/zsh-autosuggestions.zsh
 # export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
@@ -253,3 +240,7 @@ fi
 if [[ -d $HOME/dotfiles/zfunc ]]; then
     export FPATH="$HOME/dotfiles/zfunc:$FPATH"
 fi
+
+# Add nvm for managing node versions
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
