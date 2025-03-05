@@ -1,0 +1,57 @@
+;; Configuration for Kmonad for Apple Keybaords
+
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft up
+  fn   lctl lalt lmet           spc            rmet ralt left down rght
+)
+
+;; Below, I use `around' to compose `layer-toggle' with `fn' (instead
+;; of using `layer-toggle' directly) so that the `fn' keypress
+;; actually gets emitted. This matters when using an application that
+;; can use `fn' as a modifier (like Emacs).
+
+(defalias
+  ;; Function key layer for f-buttons, while retaining function as mod for other keys
+  fn (around (layer-toggle function) fn)
+
+  ;; Home row mods
+  hma (tap-hold 200 a lmet)
+  hms (tap-hold 200 s lalt)
+  hmd (tap-hold 200 d lsft)
+  hmf (tap-hold 200 f lctl)
+  hmj (tap-hold 200 j rctl)
+  hmk (tap-hold 200 k rsft)
+  hml (tap-hold 200 l lalt)   ;; Use left alt on right to avoid potential AltGr issues
+  hm; (tap-hold 200 ; rmet)
+
+  ;; Caps key: tap for caps, hold for ctrl (not currently working)
+  cpc (tap-hold 200 caps lctl)
+)
+
+(deflayer default
+  _    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  lctl @hma @hms @hmd @hmf _    _    @hmj @hmk @hml @hm; _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    -
+  @fn  _    _    _              _              _    _    _    _    _
+)
+
+(deflayer function
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  caps _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    -
+  _    _    _    _              _              _    _    _    _    _
+)
