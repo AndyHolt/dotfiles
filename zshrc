@@ -2,10 +2,15 @@
 ## Load global settings, and call loading of system specific settings too.
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/dotfiles/oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="adh"
+
+# Add homebrew dir to path
+if [[ -d /opt/homebrew/bin ]]; then
+    export PATH="/opt/homebrew/bin/:$PATH"
+fi
 
 # Add run-emacs to path (before setting up aliases)
 if [[ -d $HOME/Projects/run-emacs ]]; then
@@ -50,21 +55,20 @@ if [[ $LINUX -eq 1 ]]; then
 fi
 if [[ $MACOS -eq 1 ]]; then
     plugins=(
-        autojump
+        # autojump
         bgnotify
         brew
         bundler
-        cask
+        # cask
         colored-man-pages
         docker
         gem
-        gibo
         git
         macos
         nvm
         pip
         python
-        ripgrep
+        # ripgrep
         ruby
         rvm
         tmux
@@ -176,6 +180,10 @@ if [[ -d $HOME/Projects/colouring-in-creator ]]; then
     export PATH="$PATH:$HOME/Projects/colouring-in-creator"
     export FPATH="$FPATH:$HOME/Projects/colouring-in-creator"
 fi
+if [[ -d $HOME/Projects/cic ]]; then
+    export PATH="$PATH:$HOME/Projects/cic"
+    export FPATH="$FPATH:$HOME/Projects/cic"
+fi
 
 # set maildir directory
 export MAILDIR="$HOME/.mail"
@@ -191,7 +199,7 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 
 # enable zsh expansion for cask, the emacs package manager
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 
 # source ~/dotfiles/zsh-autosuggestions/zsh-autosuggestions.zsh
 # export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
@@ -223,6 +231,11 @@ if [ -f '/Users/adh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adh/g
 
 export CLOUDSDK_PYTHON=$(pyenv which python)
 
+# add go to path
+if [[ -d /usr/local/go/bin ]]; then
+    export PATH="$PATH:/usr/local/go/bin"
+fi
+
 # add go installed binaries to path
 if [[ -d $HOME/go/bin ]]; then
     export PATH="$PATH:$HOME/go/bin"
@@ -244,3 +257,7 @@ fi
 # Add nvm for managing node versions
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add PostgreSQL 16 homebrew to path
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
