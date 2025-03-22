@@ -1,12 +1,6 @@
 ## Global config file for zsh.
 ## Load global settings, and call loading of system specific settings too.
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-ZSH_THEME="adh"
-
 # Add homebrew dir to path
 if [[ -d /opt/homebrew/bin ]]; then
     export PATH="/opt/homebrew/bin/:$PATH"
@@ -22,9 +16,6 @@ if [[ -r ~/.zsh_aliases ]]; then
    . ~/.zsh_aliases
 fi
 
-# Check for updates every 3 days
-export UPDATE_ZSH_DAYS=3
-
 # find system type (Linux, OSX, Windows etc)
 if [[ `uname` == 'Linux' ]]; then
     export LINUX=1
@@ -38,46 +29,34 @@ else
     export MACOS=0
 fi
 
-# settings for zsh-background-notify
-# notification threshold in seconds
-export bgnotify_threshold=5
-# notification function
-function bgnotify_formatted {
-  ## $1=exit_status, $2=command, $3=elapsed_time
-    [ $1 -eq 0 ] && title="Command complete" || title="Houston, we have a problem"
-    bgnotify "$title" "$2 ran in $3 s";
-}
-
-# Load plugins according to OS. Different settings for Linux and OSX.
-if [[ $LINUX -eq 1 ]]; then
-    plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
-             tmuxinator)
-fi
-if [[ $MACOS -eq 1 ]]; then
-    plugins=(
-        # autojump
-        bgnotify
-        brew
-        bundler
-        # cask
-        colored-man-pages
-        docker
-        gem
-        git
-        macos
-        nvm
-        pip
-        python
-        # ripgrep
-        ruby
-        rvm
-        tmux
-        tmuxinator
-        vagrant
-    )
-fi
-
-source $ZSH/oh-my-zsh.sh
+# # Load plugins according to OS. Different settings for Linux and OSX.
+# if [[ $LINUX -eq 1 ]]; then
+#     plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
+#              tmuxinator)
+# fi
+# if [[ $MACOS -eq 1 ]]; then
+#     plugins=(
+#         # autojump
+#         bgnotify
+#         brew
+#         bundler
+#         # cask
+#         colored-man-pages
+#         docker
+#         gem
+#         git
+#         macos
+#         nvm
+#         pip
+#         python
+#         # ripgrep
+#         ruby
+#         rvm
+#         tmux
+#         tmuxinator
+#         vagrant
+#     )
+# fi
 
 # Use emacs keybindings for zle (Z-Shell Line Editor)
 bindkey -e
@@ -101,38 +80,19 @@ fi
 
 # some linux specific setup
 if [[ $LINUX -eq 1 ]]; then
-    # tmux powerline set up stuff
     export PATH="$HOME/.local/bin:$PATH"
-
-    # add cask binary to path
-    export PATH="$HOME/.cask/bin:$PATH"
 fi
-
-# Add RVM to PATH
-export PATH="$PATH:$HOME/.rvm/bin"
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# autostart tmux when starting zsh
-# [fix] - zsh doesn't autoconnect to tmux. Why?
-# handled by terminal apps instead for now
-# ZSH_TMUX_AUTOSTART="false"
-# ZSH_TMUX_AUTOCONNECT="true"
 
 # zmv for batch file renaming
 autoload zmv
 
-# [todo] - take machine specific settings out to specific script
-# set some directory names to parameters for shortening in prompt
-
-# set ipython directory for config files etc
-# export IPYTHONDIR="$HOME/dotfiles/ipython"
-
 # set python path to find modules in PythonTools directory
-export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
+if [[ -d $HOME/Projects/PythonTools ]]; then
+    export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
+fi
 
 # don't let VIRTUALENV modify my prompt. I'll do that myself thanks.
-export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
+# export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
 
 # change MySQL prompt to something much more useful
 export MYSQL_PS1="\u at \h using \d\n> "
@@ -184,14 +144,15 @@ if [[ -d $HOME/Projects/cic ]]; then
     export PATH="$PATH:$HOME/Projects/cic"
     export FPATH="$FPATH:$HOME/Projects/cic"
 fi
+# add latex package and class directory to path
+if [[ -d $HOME/Projects/LaTeXClasses ]]; then
+    export PATH="$PATH:$HOME/Projects/LaTeXClasses"
+    export FPATH="$FPATH:$HOME/Projects/LaTeXClasses"
+fi
+
 
 # set maildir directory
 export MAILDIR="$HOME/.mail"
-
-# pkgconfig setup required for emacs pdf-tools package
-export PKG_CONFIG_PATH=/usr/local/Cellar/pkg-config/0.29.2/bin/pkg-config
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig/"
 
 # set colours for ls command
 # See ls man page under LSCOLORS for settings details
@@ -201,26 +162,17 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
 autoload -Uz compinit && compinit -u
 
-# source ~/dotfiles/zsh-autosuggestions/zsh-autosuggestions.zsh
-# export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
-
-# add latex package and class directory to path
-if [[ -d $HOME/Projects/LaTeXClasses ]]; then
-    export PATH="$PATH:$HOME/Projects/LaTeXClasses"
-    export FPATH="$FPATH:$HOME/Projects/LaTeXClasses"
-fi
-
 # Function to open a man page in Preview as a pdf
 function manpdf {
     # $1 is man page to view
     man -t $1 | open -fa Preview
 }
 
-# Set up for pyenv, managing python versions
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# # Set up for pyenv, managing python versions
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Google cloud SDK set up
 # The next line updates PATH for the Google Cloud SDK.
@@ -242,7 +194,8 @@ if [[ -d $HOME/go/bin ]]; then
 fi
 
 # Add homebrew installed package zsh completion functions
-export FPATH="/usr/local/share/zsh/site-functions/:$FPATH"
+# export FPATH="/usr/local/share/zsh/site-functions/:$FPATH"
+export FPATH="/opt/homebrew/share/zsh/site-functions/:$FPATH"
 
 # Add ~/.local/bin directory to path if it exists
 if [[ -d $HOME/.local/bin ]]; then
@@ -261,3 +214,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add PostgreSQL 16 homebrew to path
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Enable starship prompt
+eval "$(starship init zsh)"

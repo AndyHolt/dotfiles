@@ -48,4 +48,7 @@ ln -s $DOTFILES_DIR/hammerspoon-init.lua $HOME_DIR/.hammerspoon/init.lua
 # vim setup
 ln -s $DOTFILES_DIR/vimrc $HOME_DIR/.vimrc
 
+# Starship prompt
+ln -s $DOTFILES_DIR/starship.toml  $HOME_DIR/.config/starship.toml
+
 echo -e "Set up of dotfiles complete."
