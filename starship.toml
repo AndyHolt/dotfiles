@@ -17,3 +17,16 @@ show_always = true
 ssh_only = false
 format = 'on [$ssh_symbol](blue bold)[$hostname](yellow) '
 disabled = false
+
+[gcloud]
+format = '[$symbol$account(@$domain)(\($region\))( $project)]($style)'
+[gcloud.region_aliases]
+europe-west2 = 'ew2'
+[gcloud.project_aliases]
+transportstatement-schemeflow = 'ts-sf'
+
+[python]
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
+symbol = ''
+version_format = '${raw}'
+style = 'blue'
