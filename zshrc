@@ -64,6 +64,19 @@ bindkey -e
 # don't kill running processes when exiting shell
 setopt nohup
 
+# Ensure autocd is enabled to allow changing directory without typing cd (e.g. typing `..`)
+setopt autocd
+
+# Completion interface use menu style
+zstyle ':completion:*' menu select
+# Complete with case insensitive matching
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Completion to use colours
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Shift + tab to select previous option
+bindkey '^[[Z' reverse-menu-complete
+
 # use emacs, connect to server
 if [[ -d $HOME/Projects/run-emacs ]]; then
     export EDITOR='run-emacs -w'
