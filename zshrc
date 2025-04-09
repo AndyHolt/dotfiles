@@ -77,6 +77,12 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # Shift + tab to select previous option
 bindkey '^[[Z' reverse-menu-complete
 
+# Use existing text as prefix search with up/down keys
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
+
 # use emacs, connect to server
 if [[ -d $HOME/Projects/run-emacs ]]; then
     export EDITOR='run-emacs -w'
