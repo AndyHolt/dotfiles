@@ -1,4 +1,4 @@
- for Kmonad for Apple Keybaords
+;; Configuration Kmonad for Apple Keybaords
 
 (defcfg
   input (iokit-name "Andy Holt Keyboard")
@@ -33,6 +33,17 @@
   hmk (tap-hold 200 k rsft)
   hml (tap-hold 200 l lalt)   ;; Use left alt on right to avoid potential AltGr issues
   hm; (tap-hold 200 ; rmet)
+
+  ;; alternative home row mods for number layer
+  hm4 (tap-hold 200 4 lmet)
+  hm5 (tap-hold 200 5 lalt)
+  hm6 (tap-hold 200 6 lsft)
+  htab (tap-hold 200 tab lctl)
+  hret (tap-hold 200 ret rctl)
+  hbsp (tap-hold 200 bspc rsft)
+
+  ;; Spacebar layer toggle
+  slt (tap-hold 200 spc (layer-toggle numbers))
 )
 
 (deflayer default
@@ -41,7 +52,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   lctl @hma @hms @hmd @hmf _    _    @hmj @hmk @hml @hm; _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    -
-  @fn  _    _    _              _              _    _    _    _    _
+  @fn  _    _    _              @slt              _    _    _    _    _
 )
 
 (deflayer function
@@ -51,4 +62,13 @@
   caps _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    -
   _    _    _    _              _              _    _    _    _    _
+)
+
+(deflayer numbers
+  _    brdn brup lp   mctl  bldn blup prev  pp    next mute vold volu
+  _    _    _    _    _     _    _    _     _     _    _    _    _    _
+  _    7    8    9    0     _    _    _     _     _    _    _    _    _
+  _    @hm4 @hm5 @hm6 @htab esc  _    @hret @hbsp @hml @hm; _    _
+  _    0    1    2    3     _    _    _     _     _    _    _    _    -
+  @fn  _    _    _               _                _    _    _    _    _
 )
