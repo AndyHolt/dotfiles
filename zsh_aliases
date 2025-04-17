@@ -7,6 +7,12 @@ alias lp='ls | less'
 alias llp='ls -alF | less'
 alias LS='ls -G'
 
+# Directory navigation
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
 # grep color
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -33,22 +39,9 @@ elif [[ $MACOS -eq 1 ]]; then
     alias o='open'
 fi
 
-# directory changing
-# not needed when using autojump
-# alias db='cd ~/Dropbox'
-# alias doc='cd /storage/Documents'
-# alias 2a='cd /storage/Documents/Uni/PartIIA/'
-# alias 2b='cd /storage/Documents/Uni/PartIIB/'
-# alias cu='cd ~/Dropbox/Shared\ CICCU/'
-
 # show mac and ip address
 alias MAC='ifconfig | grep -i hwaddr'
 alias IP='ifconfig | grep -i inet'
-
-# start ArgoUML application
-if [[ -d ~/ArgoUML ]]; then
-    alias ArgoUML='java -jar ~/ArgoUML/argouml-0.34/argouml.jar'
-fi
 
 # reload zshrc file
 alias reload=". ~/dotfiles/zshrc && echo 'zsh config reloaded from ~/dotfiles/zshrc'"
@@ -59,11 +52,6 @@ alias reload=". ~/dotfiles/zshrc && echo 'zsh config reloaded from ~/dotfiles/zs
 alias cleanLatex="rm -fr *.aux(N) *.bbl(N) *.bcf(N) *.log(N) *.out(N) *.pyg(N) \
 *.run.xml(N) *.tic(N) *.toc(N) *.blg(N) _minted-*(N) *.xdv(N) *.fdb_latexmk(N) \
 *.fls(N)"
-
-# start mysql daemon
-if [[ $OSX -eq 1 ]]; then
-    alias start_mysql="/usr/local/Cellar/mysql/5.6.26/support-files/mysql.server start"
-fi
 
 # simple command to get full path of a specified file
 alias get-file-path="greadlink -nf"
