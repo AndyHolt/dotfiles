@@ -19,7 +19,8 @@ echo "Location of home directory:"
 echo $HOME_DIR
 
 # add zsh prompt to oh-my-zsh for autoloading
-cp $DOTFILES_DIR/adh.zsh-theme $DOTFILES_DIR/oh-my-zsh/themes/.
+# no longer using oh-my-zsh
+# rp $DOTFILES_DIR/adh.zsh-theme $DOTFILES_DIR/oh-my-zsh/themes/.
 
 # bash config
 ln -s $DOTFILES_DIR/bash_profile $HOME_DIR/.bash_profile
@@ -28,7 +29,7 @@ ln -s $DOTFILES_DIR/bash_logout $HOME_DIR/.bash_logout
 ln -s $DOTFILES_DIR/bashrc $HOME_DIR/.bashrc
 
 # terminator config
-ln -s $DOTFILES_DIR/terminator_config $HOME_DIR/.config/terminator/config
+# ln -s $DOTFILES_DIR/terminator_config $HOME_DIR/.config/terminator/config
 
 # tmux config
 ln -s $DOTFILES_DIR/tmux.conf $HOME_DIR/.tmux.conf
@@ -40,7 +41,7 @@ ln -s $DOTFILES_DIR/zshenv $HOME_DIR/.zshenv
 ln -s $DOTFILES_DIR/zprofile $HOME_DIR/.zprofile
 
 # offlineimap setup
-ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
+# ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
 
 # hammerspoon setup
 ln -s $DOTFILES_DIR/hammerspoon-init.lua $HOME_DIR/.hammerspoon/init.lua

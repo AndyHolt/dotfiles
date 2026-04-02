@@ -113,9 +113,6 @@ fi
 # don't let VIRTUALENV modify my prompt. I'll do that myself thanks.
 # export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
 
-# change MySQL prompt to something much more useful
-export MYSQL_PS1="\u at \h using \d\n> "
-
 # set max width of man pages to 80 characters.
 export MANWIDTH=80
 
@@ -175,7 +172,7 @@ export MAILDIR="$HOME/.mail"
 
 # set colours for ls command
 # See ls man page under LSCOLORS for settings details
-export LSCOLORS="gxfxcxdxbxegedabagacad"
+# export LSCOLORS="gxfxcxdxbxegedabagacad"
 
 # enable zsh expansion for cask, the emacs package manager
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
@@ -186,21 +183,6 @@ function manpdf {
     # $1 is man page to view
     man -t $1 | open -fa Preview
 }
-
-# # Set up for pyenv, managing python versions
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-# Google cloud SDK set up
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/adh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adh/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/adh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adh/google-cloud-sdk/completion.zsh.inc'; fi
-
-export CLOUDSDK_PYTHON=$(pyenv which python)
 
 # add go to path
 if [[ -d /usr/local/go/bin ]]; then
@@ -213,7 +195,6 @@ if [[ -d $HOME/go/bin ]]; then
 fi
 
 # Add homebrew installed package zsh completion functions
-# export FPATH="/usr/local/share/zsh/site-functions/:$FPATH"
 export FPATH="/opt/homebrew/share/zsh/site-functions/:$FPATH"
 
 # Add ~/.local/bin directory to path if it exists
@@ -231,15 +212,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Add PostgreSQL 16 homebrew to path
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-
-# Environment variables for ESP-32 rust development on Xtensia
-# export LIBCLANG_PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-20.1.1_20250829/esp-clang/lib"
-# export PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp-elf/esp-15.2.0_20250920/xtensa-esp-elf/bin:$PATH"
-export PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp-elf/esp-15.2.0_20250920/xtensa-esp-elf/bin:$PATH"
-export LIBCLANG_PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-20.1.1_20250829/esp-clang/lib"
 
 # Enable starship prompt
 eval "$(starship init zsh)"
