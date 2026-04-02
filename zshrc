@@ -235,5 +235,11 @@ export NVM_DIR="$HOME/.nvm"
 # Add PostgreSQL 16 homebrew to path
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
+# Environment variables for ESP-32 rust development on Xtensia
+# export LIBCLANG_PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-20.1.1_20250829/esp-clang/lib"
+# export PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp-elf/esp-15.2.0_20250920/xtensa-esp-elf/bin:$PATH"
+export PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp-elf/esp-15.2.0_20250920/xtensa-esp-elf/bin:$PATH"
+export LIBCLANG_PATH="/Users/adh/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-20.1.1_20250829/esp-clang/lib"
+
 # Enable starship prompt
 eval "$(starship init zsh)"

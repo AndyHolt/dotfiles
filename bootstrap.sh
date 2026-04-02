@@ -51,4 +51,8 @@ ln -s $DOTFILES_DIR/vimrc $HOME_DIR/.vimrc
 # Starship prompt
 ln -s $DOTFILES_DIR/starship.toml  $HOME_DIR/.config/starship.toml
 
+# Ghostty terminal emulator
+mkdir -p $HOME_DIR/.config/ghostty
+ln -s $DOTFILES_DIR/ghostty_config $HOME_DIR/.config/ghostty/config
+
 echo -e "Set up of dotfiles complete."

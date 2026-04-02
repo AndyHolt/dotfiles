@@ -43,7 +43,7 @@
   hbsp (tap-hold 200 bspc rsft)
 
   ;; Spacebar layer toggle
-  slt (tap-hold 200 spc (layer-toggle space))
+  slt (tap-hold 300 spc (layer-toggle space))
 )
 
 (deflayer default
@@ -51,7 +51,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   lctl @hma @hms @hmd @hmf _    _    @hmj @hmk @hml @hm; _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    -
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   @fn  _    _    _              @slt           _    _    _    _    _
 )
 
@@ -60,7 +60,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   caps _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    -
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _              _              _    _    _    _    _
 )
 
@@ -69,6 +69,6 @@
   _    _    _    _    _     _    _    _     _     _    _    _    _    _
   _    7    8    9    0     _    _    _     _     _    _    _    _    _
   _    @hm4 @hm5 @hm6 @htab esc  _    @hret @hbsp @hml @hm; _    _
-  _    0    1    2    3     _    _    _     _     _    _    _    _    -
+  _    0    1    2    3     _    _    _     _     _    _    _    _    _
   @fn  _    _    _               _                _    _    _    _    _
 )

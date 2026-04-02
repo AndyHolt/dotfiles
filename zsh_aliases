@@ -1,10 +1,10 @@
 # enable color support for ls and also handy aliases
 alias ls='ls -G'
-alias ll='ls -alFG'
+alias ll='ls -alFGh'
 alias la='ls -AG'
 alias l='ls -CFG'
 alias lp='ls | less'
-alias llp='ls -alF | less'
+alias llp='ls -alFh | less'
 alias LS='ls -G'
 
 # Directory navigation

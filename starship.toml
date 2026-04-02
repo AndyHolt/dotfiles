@@ -7,8 +7,8 @@ success_symbol = '[\$](bold green)'
 error_symbol = '[\$](bold red)'
 
 [username]
-style_user = 'bright-blue'
-style_root = 'green bold'
+style_user = 'blue'
+style_root = 'black'
 format = '[$user]($style) '
 disabled = false
 show_always = true
@@ -18,7 +18,12 @@ ssh_only = false
 format = 'on [$ssh_symbol](blue bold)[$hostname](yellow) '
 disabled = false
 
+[directory]
+style = 'bold cyan'
+format = 'at [$path]($style)[$read_only]($read_only_style) '
+
 [gcloud]
+disabled = true
 format = '[$symbol$account(@$domain)(\($region\))( $project)]($style)'
 [gcloud.region_aliases]
 europe-west2 = 'ew2'
@@ -26,7 +31,14 @@ europe-west2 = 'ew2'
 transportstatement-schemeflow = 'ts-sf'
 
 [python]
+disabled = true
 format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
 symbol = ''
 version_format = '${raw}'
 style = 'blue'
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true

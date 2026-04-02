@@ -1,0 +1,8 @@
+font-family = "Menlo Nerd Font"
+
+theme = dark:Zenburned,light:Everforest Light Med
+window-padding-x = 8
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
