@@ -44,12 +44,14 @@ ln -s $DOTFILES_DIR/zprofile $HOME_DIR/.zprofile
 # ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
 
 # hammerspoon setup
+mkdir -p $HOME_DIR/.hammerspoon
 ln -s $DOTFILES_DIR/hammerspoon-init.lua $HOME_DIR/.hammerspoon/init.lua
 
 # vim setup
 ln -s $DOTFILES_DIR/vimrc $HOME_DIR/.vimrc
 
 # Starship prompt
+mkdir -p $HOME_DIR/.config
 ln -s $DOTFILES_DIR/starship.toml  $HOME_DIR/.config/starship.toml
 
 # Ghostty terminal emulator
