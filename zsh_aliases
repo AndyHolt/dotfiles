@@ -55,3 +55,13 @@ alias cleanLatex="rm -fr *.aux(N) *.bbl(N) *.bcf(N) *.log(N) *.out(N) *.pyg(N) \
 
 # simple command to get full path of a specified file
 alias get-file-path="greadlink -nf"
+
+# git aliases
+alias gst='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gl='git log --oneline'
+alias gll='git log'
+alias gd='git diff'
+alias gco='git checkout'
+alias gbr='git branch'
