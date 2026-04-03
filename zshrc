@@ -199,7 +199,7 @@ export FPATH="/opt/homebrew/share/zsh/site-functions/:$FPATH"
 
 # Add ~/.local/bin directory to path if it exists
 if [[ -d $HOME/.local/bin ]]; then
-    export PATH="$PATH:$HOME/.local/bin"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Add zfunc directory to FPATH for zsh completions
