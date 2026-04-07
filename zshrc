@@ -194,6 +194,10 @@ if [[ -d $HOME/go/bin ]]; then
     export PATH="$PATH:$HOME/go/bin"
 fi
 
+if [[ -d /Library/TeX/texbin/ ]]; then
+    export PATH="/Library/TeX/texbin:$PATH"
+fi
+
 # Add homebrew installed package zsh completion functions
 export FPATH="/opt/homebrew/share/zsh/site-functions/:$FPATH"
 
