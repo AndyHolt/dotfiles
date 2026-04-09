@@ -183,6 +183,11 @@ fi
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
 autoload -Uz compinit && compinit -u
 
+# Autocomplete for terraform if available
+if [[ -x /opt/homebrew/bin/terraform ]]; then
+    complete -o nospace -C /opt/homebrew/bin/terraform terraform
+fi
+
 # Function to open a man page in Preview as a pdf
 function manpdf {
     # $1 is man page to view
