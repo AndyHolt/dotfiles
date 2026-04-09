@@ -174,6 +174,11 @@ export MAILDIR="$HOME/.mail"
 # See ls man page under LSCOLORS for settings details
 # export LSCOLORS="gxfxcxdxbxegedabagacad"
 
+if [[ -d $HOME/.zfunc ]]; then
+    # fpath+=$HOME/.zfunc
+    export FPATH="$HOME/.fpath:$FPATH"
+fi
+
 # enable zsh expansion for cask, the emacs package manager
 export FPATH="$HOME/dotfiles/:$HOME/dotfiles/zsh-completion/:$FPATH"
 autoload -Uz compinit && compinit -u

@@ -39,6 +39,7 @@ ln -s $DOTFILES_DIR/zsh_aliases $HOME_DIR/.zsh_aliases
 ln -s $DOTFILES_DIR/zshrc $HOME_DIR/.zshrc
 ln -s $DOTFILES_DIR/zshenv $HOME_DIR/.zshenv
 ln -s $DOTFILES_DIR/zprofile $HOME_DIR/.zprofile
+ln -s $DOTFILES_DIR/zfunc $HOME_DIR/.zfunc
 
 # offlineimap setup
 # ln -s $DOTFILES_DIR/offlineimaprc $HOME_DIR/.offlineimaprc
