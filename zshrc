@@ -122,10 +122,6 @@ if [[ -d $HOME/Projects/WritingTools ]]; then
     export PATH="$PATH:$HOME/Projects/WritingTools"
     export FPATH="$FPATH:$HOME/Projects/WritingTools"
 fi
-if [[ -d $HOME/Projects/gibo ]]; then
-   # gibo -- generates .gitignore files
-   export PATH="$PATH:$HOME/Projects/gibo"
-fi
 if [[ -d $HOME/Projects/formd ]]; then
     # formd -- a markdown formatting tool
     export PATH="$PATH:$HOME/Projects/formd"
@@ -166,6 +162,8 @@ if [[ -d $HOME/Projects/LaTeXClasses ]]; then
     export FPATH="$FPATH:$HOME/Projects/LaTeXClasses"
 fi
 
+# Generate gitignore files using gitignore.io
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
 
 # set maildir directory
 export MAILDIR="$HOME/.mail"
