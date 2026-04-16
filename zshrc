@@ -225,6 +225,37 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Set up for fnm: fast node manager, modern replacement for nvm
+export PATH="/Users/adh/.local/state/fnm_multishells/4356_1776355813025/bin":$PATH
+export FNM_MULTISHELL_PATH="/Users/adh/.local/state/fnm_multishells/4356_1776355813025"
+export FNM_VERSION_FILE_STRATEGY="local"
+export FNM_DIR="/Users/adh/.local/share/fnm"
+export FNM_LOGLEVEL="info"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_COREPACK_ENABLED="false"
+export FNM_RESOLVE_ENGINES="true"
+export FNM_ARCH="arm64"
+autoload -U add-zsh-hook
+_fnm_autoload_hook () {
+    if [[ -f .node-version || -f .nvmrc || -f package.json ]]; then
+    fnm use --silent-if-unchanged
+fi
+
+}
+
+add-zsh-hook -D chpwd _fnm_autoload_hook
+add-zsh-hook chpwd _fnm_autoload_hook
+
+rehash
+
+# pnpm
+export PNPM_HOME="/Users/adh/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 # GPG fix
 export GPG_TTY=$(tty)
 
