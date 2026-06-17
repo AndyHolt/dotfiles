@@ -7,3 +7,6 @@ fi
 if [[ -f "$HOME/.cargo/env" ]]; then
     . "$HOME/.cargo/env"
 fi
+
+# When cask installing emacs packages, ensure lsp-mode built with faster plist support
+export LSP_USE_PLISTS=true
