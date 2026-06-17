@@ -65,3 +65,9 @@ alias gll='git log'
 alias gd='git diff'
 alias gco='git checkout'
 alias gbr='git branch'
+
+# tmuxinator, if installed
+# n.b. plain alias will inherit completions in zsh
+if (( $+commands[tmuxinator] )); then
+  alias mux='tmuxinator'
+fi
