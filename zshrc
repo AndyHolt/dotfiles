@@ -12,7 +12,7 @@ if [[ -d $HOME/Projects/run-emacs ]]; then
 fi
 
 # load aliases from another file
-if [[ -r ~/.zsh_aliases ]]; then
+if [[ -f ~/.zsh_aliases && -r ~/.zsh_aliases ]]; then
    . ~/.zsh_aliases
 fi
 
