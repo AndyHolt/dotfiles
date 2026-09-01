@@ -81,3 +81,6 @@ alias gbr='git branch'
 if (( $+commands[tmuxinator] )); then
   alias mux='tmuxinator'
 fi
+
+# colima standard config
+alias colima_start="colima start --cpu 4 --memory 4 --disk 60"
