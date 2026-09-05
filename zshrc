@@ -69,8 +69,13 @@ setopt autocd
 
 # Completion interface use menu style
 zstyle ':completion:*' menu select
-# Complete with case insensitive matching
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Complete with case insensitive matching, partial word matching on separators, and substring matching
+zstyle ':completion:*' matcher-list \
+       'm:{a-zA-Z}={A-Za-z}' \
+       'm:{a-zA-Z}={A-Za-z} r:|[._-]=* r:|=*' \
+       'm:{a-zA-Z}={A-Za-z} l:|=* r:|=*'
+# allow selection when a rule gives multiple matches
+zstyle ':completion:*' menu select
 # Completion to use colours
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
