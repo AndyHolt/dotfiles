@@ -264,5 +264,10 @@ esac
 # GPG fix
 export GPG_TTY=$(tty)
 
+# specific claude code setup for client laptop
+if [[ -f $HOME/.local/bin/claude-code-env-setup.sh ]]; then
+    source $HOME/.local/bin/claude-code-env-setup.sh
+fi
+
 # Enable starship prompt
 eval "$(starship init zsh)"
