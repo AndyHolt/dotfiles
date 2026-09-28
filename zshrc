@@ -88,11 +88,17 @@ bindkey '^[[B' history-beginning-search-forward
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
+# Edit current line in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+# repurpose Ctrl-o for open in editor
+bindkey '^o' edit-command-line
+
 # use emacs, connect to server
 if [[ -d $HOME/Projects/run-emacs ]]; then
     export EDITOR='run-emacs -w'
 else
-    export EDITOR='emacsclient -c -a=""'
+    export EDITOR='emacsclient -q -c -a=""'
 fi
 
 # use pandoc completion if available
