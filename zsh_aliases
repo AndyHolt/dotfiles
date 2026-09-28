@@ -83,4 +83,4 @@ if (( $+commands[tmuxinator] )); then
 fi
 
 # colima standard config
-alias colima_start="colima start --cpu 4 --memory 4 --disk 60"
+alias colima_start="colima start --cpu 4 --memory 8 --disk 60"
