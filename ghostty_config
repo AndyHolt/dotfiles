@@ -8,3 +8,6 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 
 macos-option-as-alt = true
+
+# insert # using alt-3
+keybind = alt+3=text:#
