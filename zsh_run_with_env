@@ -1,0 +1,61 @@
+# Run a command with environment variables loaded from local env file(s)
+run-with-env() {
+    local env_files=()
+    local OPTIND=1
+
+    # Parse options
+    while getopts "e:" opt; do
+        case $opt in
+            e) env_files+=("$OPTARG") ;;
+            *) echo "Usage: run-with-env [-e file]... command" >&2; return 1 ;;
+        esac
+    done
+
+    # Remove flags from the argument list
+    shift $((OPTIND - 1))
+
+    # Default .env
+    if [ ${#env_files[@]} -eq 0 ] && [ -f .env ]; then
+        env_files=(.env)
+    fi
+
+    # run in subshell to avoid variable leakage
+    (
+        set -a
+        for f in "${env_files[@]}"; do
+            [ -f "$f" ] && source "$f"
+        done
+        "$@"
+    )
+}
+
+# Run make with vars as args, overriding values set within Makefile
+emake() {
+    local env_files=()
+    local OPTIND=1
+
+    # Parse options
+    while getopts "e:" opt; do
+        case $opt in
+            e) env_files+=("$OPTARG") ;;
+            *) echo "Usage: emake [-e file]... [make arguments]" >&2; return 1 ;;
+        esac
+    done
+    shift $((OPTIND - 1))
+
+    # Default .env
+    if [ ${#env_files[@]} -eq 0 ] && [ -f .env ]; then
+        env_files=(.env)
+    fi
+
+    local valid_files=()
+    for f in "${env_files[@]}"; do
+        [ -f "$f" ] && valid_files+=("$f")
+    done
+
+    if [ ${#valid_files[@]} -gt 0 ]; then
+        make "$@" $(cat "${valid_files[@]}" | grep -Ev '^\s*(#|$)' | xargs)
+    else
+        make "$@"
+    fi
+}

@@ -29,35 +29,6 @@ else
     export MACOS=0
 fi
 
-# # Load plugins according to OS. Different settings for Linux and OSX.
-# if [[ $LINUX -eq 1 ]]; then
-#     plugins=(autojump command-not-found gem git git-annex pip ruby rvm tmux
-#              tmuxinator)
-# fi
-# if [[ $MACOS -eq 1 ]]; then
-#     plugins=(
-#         # autojump
-#         bgnotify
-#         brew
-#         bundler
-#         # cask
-#         colored-man-pages
-#         docker
-#         gem
-#         git
-#         macos
-#         nvm
-#         pip
-#         python
-#         # ripgrep
-#         ruby
-#         rvm
-#         tmux
-#         tmuxinator
-#         vagrant
-#     )
-# fi
-
 # Use emacs keybindings for zle (Z-Shell Line Editor)
 bindkey -e
 
@@ -120,9 +91,6 @@ autoload zmv
 if [[ -d $HOME/Projects/PythonTools ]]; then
     export PYTHONPATH="$PYTHONPATH:$HOME/Projects/PythonTools"
 fi
-
-# don't let VIRTUALENV modify my prompt. I'll do that myself thanks.
-# export VIRTUAL_ENV_DISABLE_PROMPT="TRUE"
 
 # set max width of man pages to 80 characters.
 export MANWIDTH=80
@@ -202,6 +170,11 @@ function manpdf {
     # $1 is man page to view
     man -t $1 | open -fa Preview
 }
+
+# load functions for running commands with .env vars
+if [[ -f $HOME/.zsh_run_with_env ]]; then
+    source $HOME/.zsh_run_with_env
+fi
 
 # add go to path
 if [[ -d /usr/local/go/bin ]]; then
